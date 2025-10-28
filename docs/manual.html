@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IreCan Smart Addon - 사용자 매뉴얼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: url('배경.png') center center / cover no-repeat fixed;
+            color: #e4e4e7;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 헤더 */
+        .header {
+            text-align: center;
+            padding: 40px 0 60px 0;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #a1a1aa;
+        }
+
+        /* 네비게이션 */
+        .nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .nav h3 {
+            font-size: 1.1em;
+            color: #fafafa;
+            margin-bottom: 15px;
+        }
+
+        .nav ul {
+            list-style: none;
+        }
+
+        .nav li {
+            margin: 8px 0;
+        }
+
+        .nav a {
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: block;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .nav a:hover {
+            color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* 섹션 */
+        section {
+            margin: 60px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.15);
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 800;
+            color: #fafafa;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #e4e4e7;
+            margin: 32px 0 16px 0;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #d4d4d8;
+            margin: 24px 0 12px 0;
+        }
+
+        p {
+            margin: 16px 0;
+            color: #a1a1aa;
+            font-size: 1.05em;
+        }
+
+        /* 리스트 */
+        ul, ol {
+            margin: 16px 0 16px 24px;
+            color: #a1a1aa;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* 코드 블록 */
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        code {
+            background: rgba(139, 92, 246, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #c4b5fd;
+        }
+
+        /* 강조 */
+        strong {
+            color: #fafafa;
+            font-weight: 700;
+        }
+
+        /* 경고 박스 */
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+
+        .success {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid #22c55e;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        /* 버튼 */
+        .btn-home {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            color: #71717a;
+        }
+
+        /* 고정 네비게이션 버튼 */
+        .fixed-nav {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .fixed-nav a {
+            display: block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s;
+            min-width: 100px;
+        }
+
+        .fixed-nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .fixed-nav {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .fixed-nav a {
+                padding: 10px 16px;
+                font-size: 0.9em;
+                min-width: 80px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 IreCan Smart Addon</h1>
+            <p>사용자 매뉴얼 - 초보자를 위한 완벽 가이드</p>
+        </div>
+
+        <a href="index.html" class="btn-home">← 메인으로 돌아가기</a>
+
+        <nav class="nav" id="nav">
+            <h3>📋 목차</h3>
+            <ul>
+                <li><a href="#intro">1. 프로그램 소개</a></li>
+                <li><a href="#start">2. 첫 실행 시작하기</a></li>
+                <li><a href="#setup">3. 기본 설정 (필수)</a></li>
+                <li><a href="#basic">4. 기본 기능 사용하기</a></li>
+                <li><a href="#advanced">5. 고급 기능</a></li>
+                <li><a href="#troubleshoot">6. 문제 해결</a></li>
+            </ul>
+        </nav>
+
+        <!-- 1. 프로그램 소개 -->
+        <section id="intro">
+            <h2>1. 프로그램 소개</h2>
+
+            <h3>이레캔 애드온이란?</h3>
+            <p><strong>IreCan Smart Addon</strong>은 게임 플레이를 편리하게 도와주는 매크로 프로그램입니다.</p>
+
+            <h3>주요 기능</h3>
+            <ul>
+                <li><strong>핫키 매핑</strong>: F5~F12 키를 자주 쓰는 키(q, w, e, r 등)로 변경</li>
+                <li><strong>좌표 클릭</strong>: 설정한 좌표를 자동으로 클릭</li>
+                <li><strong>휠 클릭</strong>: 단축키를 마우스 휠 버튼 클릭으로 사용할 수 있음</li>
+                <li><strong>시퀀스 실행</strong>: 여러 동작을 순서대로 자동 실행</li>
+                <li><strong>버튼 UI</strong>: 화면에 버튼을 띄워서 클릭 가능</li>
+            </ul>
+        </section>
+
+        <!-- 2. 첫 실행 시작하기 -->
+        <section id="start">
+            <h2>2. 첫 실행 시작하기</h2>
+
+            <h3>2.1 프로그램 실행</h3>
+            <ol>
+                <li><code>IreCan Smart Addon.exe</code> 파일을 더블클릭하여 실행합니다.</li>
+                <li><strong>관리자 권한 승인 창</strong>이 뜨면 <strong>"예"</strong>를 클릭합니다.</li>
+            </ol>
+
+            <div class="warning">
+                ⚠️ <strong>중요:</strong> 관리자 권한이 없으면 프로그램이 작동하지 않습니다.
+            </div>
+
+            <h3>2.2 라이선스 인증 (처음 실행 시)</h3>
+
+            <h4>📌 신규 사용자 (첫 실행)</h4>
+            <p>프로그램을 처음 실행하면 <strong>라이선스 등록 창</strong>이 나타납니다.</p>
+
+            <p><strong>단계별 진행:</strong></p>
+            <ol>
+                <li><strong>사용자명 입력</strong> (예: 홍길동)
+                    <ul>
+                        <li>영문, 한글, 숫자만 가능</li>
+                        <li>특수문자 불가</li>
+                    </ul>
+                </li>
+                <li><strong>연락처 입력</strong> (예: 01012345678 또는 @telegram_id)</li>
+                <li><strong>[등록 신청]</strong> 버튼 클릭</li>
+                <li><strong>[텔레그램]</strong> 버튼을 눌러 관리자에게 문의</li>
+                <li>관리자 승인 후 <strong>프로그램을 다시 실행</strong></li>
+            </ol>
+
+            <h4>📌 기존 사용자 (라이선스 만료)</h4>
+            <p>사용 기간이 만료되면 <strong>연장 신청 창</strong>이 나타납니다.</p>
+            <ol>
+                <li>사용자명/연락처 확인 (변경 가능)</li>
+                <li><strong>[연장 신청]</strong> 클릭</li>
+                <li>텔레그램으로 관리자 문의</li>
+                <li>승인 후 프로그램 재실행</li>
+            </ol>
+
+            <h3>2.3 게임창 선택 (필수!)</h3>
+            <p>라이선스 인증이 완료되면 <strong>게임창 선택 창</strong>이 나타납니다.</p>
+
+            <ol>
+                <li><strong>[확인]</strong> 버튼을 클릭합니다.</li>
+                <li><strong>게임 창 위에 마우스 커서를 올리고</strong> 한 번 클릭합니다.</li>
+            </ol>
+
+            <div class="warning">
+                ⚠️ 데스크톱이나 다른 프로그램 창을 클릭하면 안 됩니다!
+            </div>
+
+            <div class="success">
+                ✅ 선택 완료 메시지: <code>게임창 선택 완료: Lineage Classic</code>
+            </div>
+        </section>
+
+        <!-- 3. 기본 설정 -->
+        <section id="setup">
+            <h2>3. 기본 설정 (필수)</h2>
+
+            <p>게임창을 선택했다면, 이제 <strong>핫키 매핑</strong>과 <strong>좌표</strong>를 설정해야 합니다.</p>
+
+            <h3>3.1 트레이 아이콘 메뉴</h3>
+            <p>화면 오른쪽 하단 <strong>시스템 트레이</strong>에서 <strong>IreCan Smart Addon 아이콘</strong>을 <strong>우클릭</strong>하면 메뉴가 나타납니다.</p>
+            <p>또는, 화면에 나타난 <strong>ON/OFF 버튼에 마우스 우클릭</strong> 해도 메뉴가 나타납니다.</p>
+
+            <h3>3.2 핫키 매핑 설정</h3>
+            <p><strong>목적:</strong> F5~F12 키를 원하는 키로 변경</p>
+
+            <ol>
+                <li>트레이 아이콘 우클릭 → <strong>"핫키 매핑 설정..."</strong> 클릭</li>
+                <li><strong>ON/OFF 키 변경</strong> (선택사항)
+                    <ul>
+                        <li><code>`</code> 버튼 클릭 후 원하는 키를 누름</li>
+                        <li>ESC를 누르면 취소</li>
+                    </ul>
+                </li>
+                <li><strong>F5~F12 키 매핑 변경</strong>
+                    <ul>
+                        <li>예: F5를 q로 바꾸려면 <code>[q]</code> 버튼 클릭 후 <code>q</code> 키 입력</li>
+                    </ul>
+                </li>
+                <li><strong>휠 클릭 설정</strong>
+                    <ul>
+                        <li>F5~F12만 휠 클릭 가능</li>
+                        <li>체크박스 ON = q 키를 누르면 단축창 F5 + <strong>휠 버튼 클릭</strong></li>
+                    </ul>
+                </li>
+                <li><strong>프리셋 전환</strong> (A, B, C)
+                    <ul>
+                        <li>예: A = 기사, B = 요정, C = 법사</li>
+                    </ul>
+                </li>
+                <li><strong>[확인]</strong> 클릭하여 저장</li>
+            </ol>
+
+            <h3>3.3 좌표 설정</h3>
+            <p><strong>목적:</strong> F5~F12에 매핑된 핫키(QWER ASDF)를 눌렀을 때 인식할 단축창 위치 지정</p>
+
+            <ol>
+                <li>ON/OFF 버튼 (또는 트레이 아이콘) 우클릭 → <strong>"좌표 설정"</strong> 클릭</li>
+                <li><strong>[F5 설정]</strong> 버튼 클릭</li>
+                <li>안내 메시지: <code>단축창 위치에서 우클릭 하세요.(5초 타임아웃)</code></li>
+                <li><strong>게임 창에서 해당 단축키 위치</strong>를 마우스 우클릭</li>
+                <li>자동으로 좌표가 저장됨: <code>F5: (645, 873)</code></li>
+                <li><strong>F6~F12도 같은 방법으로 설정</strong></li>
+                <li><strong>[확인]</strong> 클릭하여 저장</li>
+            </ol>
+
+            <h3>3.4 타이밍 설정 (고급)</h3>
+            <p><strong>목적:</strong> 클릭 속도 조절 (기본값으로도 충분함)</p>
+
+            <div class="info">
+                💡 <strong>추천 설정:</strong> 기본값 그대로 사용 (건드리지 않아도 됨)
+            </div>
+        </section>
+
+        <!-- 4. 기본 기능 사용하기 -->
+        <section id="basic">
+            <h2>4. 기본 기능 사용하기</h2>
+
+            <h3>4.1 매크로 ON/OFF</h3>
+
+            <p><strong>방법 1: 키 매핑 설정에서 지정한 키 사용</strong></p>
+            <ul>
+                <li>기본값: <code>`</code> 키 (숫자1 왼쪽에 있는 키)</li>
+                <li>게임 창이 활성화된 상태에서 <code>`</code> 누름</li>
+                <li>OFF에서 ON으로 전환:
+                    <ul>
+                        <li>초록색 = ON</li>
+                        <li>빨간색 = OFF</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>방법 2: OFF/ON 버튼 직접 마우스 클릭</strong></p>
+            <ul>
+                <li><strong>좌클릭</strong>으로 ON/OFF 전환</li>
+            </ul>
+
+            <h3>4.2 매핑된 핫키 사용하기</h3>
+
+            <p><strong>예시: F5 키를 q로 매핑, 휠클릭 체크</strong></p>
+
+            <ol>
+                <li>매크로 <strong>ON</strong> 상태로 전환</li>
+                <li>게임 창에서 <code>q</code> 키를 누름</li>
+                <li>프로그램이 자동으로:
+                    <ul>
+                        <li>F5에 설정한 좌표 <code>(645, 873)</code> 인식</li>
+                        <li>휠 버튼 클릭 (휠클릭이 ON인 경우)</li>
+                        <li>마우스 포인터 위치 변동 없음</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="success">
+                ✅ <strong>결과:</strong> 현재 마우스 위치에 바로 [F5] 휠클릭
+            </div>
+
+            <h3>4.3 핫키 반복 기능</h3>
+
+            <p>매크로가 <strong>ON</strong> 상태에서 <code>Shift</code> + 핫키(QWER) 입력: 해당 단축키 무한반복</p>
+            <p>반복 해제는 해당 단축키만 다시 입력 (<code>Shift</code> 안 누름!!)</p>
+
+            <div class="info">
+                💡 <strong>툴팁 숨기기:</strong> 트레이 아이콘 우클릭 → "툴팁 보이기/숨기기"
+            </div>
+
+            <h3>4.4 게임창 비활성화 시 자동 OFF</h3>
+
+            <p><strong>안전 기능:</strong></p>
+            <ul>
+                <li>게임 창에서 다른 창으로 전환하면 <strong>자동으로 매크로 OFF</strong></li>
+                <li>다른 프로그램에서 핫키가 작동하는 것을 방지, 바로 기본 키보드로 사용</li>
+            </ul>
+        </section>
+
+        <!-- 5. 고급 기능 -->
+        <section id="advanced">
+            <h2>5. 고급 기능</h2>
+
+            <h3>5.1 버튼 UI</h3>
+
+            <p><strong>목적:</strong> 화면에 버튼을 띄워서 마우스로 클릭 가능</p>
+
+            <p><strong>버튼 UI 표시:</strong></p>
+            <ol>
+                <li>트레이 아이콘 우클릭 → "버튼 보이기/숨기기"</li>
+            </ol>
+
+            <p><strong>버튼 클릭:</strong></p>
+            <ul>
+                <li>버튼을 마우스로 클릭하면 할당된 시퀀스가 실행</li>
+            </ul>
+
+            <p><strong>버튼 UI 설정:</strong></p>
+            <ol>
+                <li>버튼 아무데나 <code>Ctrl</code> + 우클릭 드래그 → 원하는 곳으로 이동</li>
+                <li>ON/OFF 버튼 또는 트레이아이콘에 우클릭 - 버튼UI 설정 메뉴 선택
+                    <ul>
+                        <li>버튼 개수: 1~20개 필요한 개수 설정</li>
+                        <li>행 수: 1~3줄 선택</li>
+                        <li>방향: 가로/세로 선택</li>
+                        <li>버튼 너비: 20~200 범위에서 설정</li>
+                        <li>버튼 높이: 20~200 범위에서 설정</li>
+                        <li>버튼 간격: 0~20 범위에서 설정</li>
+                        <li>투명도: 0~255 슬라이더로 설정</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>5.2 버튼 반복 실행</h3>
+
+            <p><strong>목적:</strong> 버튼을 한 번 클릭하면 계속 반복 실행</p>
+
+            <ol>
+                <li>버튼 UI에서 원하는 버튼 <code>Shift</code> + 좌클릭
+                    <ul>
+                        <li>해당 버튼에 할당된 시퀀스가 무한 반복 실행</li>
+                        <li>실행 중인 버튼에 텍스트가 청록색으로 깜빡임</li>
+                    </ul>
+                </li>
+                <li><code>Shift</code> + 핫키(QWER ASDF 등)
+                    <ul>
+                        <li>해당 핫키가 무한 반복 실행</li>
+                    </ul>
+                </li>
+                <li>반복 해제
+                    <ul>
+                        <li>해당 버튼 좌클릭</li>
+                        <li>해당 핫키 입력</li>
+                        <li>매크로 OFF</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>5.3 시퀀스 설정</h3>
+
+            <p><strong>목적:</strong> 여러 동작을 녹화하고 자동 재생</p>
+
+            <h4>시퀀스 설정 열기</h4>
+            <ol>
+                <li>UI버튼 / 트레이 아이콘 우클릭 → "시퀀스 설정..."</li>
+            </ol>
+
+            <h4>시퀀스 만들기</h4>
+            <p><strong>예시: "데스변신" 시퀀스</strong></p>
+            <ol>
+                <li><strong>[새 시퀀스]</strong> 클릭</li>
+                <li>시퀀스 이름 입력: ex 데스변신</li>
+                <li>[확인] 버튼 클릭</li>
+            </ol>
+
+            <h4>시퀀스 핫키 할당</h4>
+            <ol>
+                <li>버튼 UI에서 버튼 <strong>우클릭</strong></li>
+                <li>"핫키 할당" 선택</li>
+                <li>드롭다운에서 시퀀스 선택</li>
+                <li>할당한 핫키로 시퀀스 실행</li>
+            </ol>
+
+            <div class="info">
+                💡 <strong>참고:</strong> 시퀀스 상세 가이드는 추후 추가 예정입니다.
+            </div>
+        </section>
+
+        <!-- 6. 문제 해결 -->
+        <section id="troubleshoot">
+            <h2>6. 문제 해결</h2>
+
+            <h3>❓ 프로그램이 실행되지 않아요</h3>
+
+            <p><strong>해결 방법:</strong></p>
+            <ol>
+                <li><strong>관리자 권한으로 실행</strong>했는지 확인
+                    <ul>
+                        <li>UAC 승인 창에서 "예" 클릭 필수</li>
+                    </ul>
+                </li>
+                <li>라이선스 등록 및 승인 확인
+                    <ul>
+                        <li>안내 메시지 확인</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>❓ 키를 눌러도 반응이 없어요</h3>
+
+            <p><strong>체크리스트:</strong></p>
+            <ul>
+                <li>✅ 매크로가 <strong>ON</strong> 상태인가요? 초록색 ON 버튼 확인</li>
+                <li>✅ 게임 창이 <strong>활성화</strong>되어 있나요?</li>
+                <li>✅ <strong>좌표 설정</strong>을 했나요?</li>
+                <li>✅ <strong>키 매핑 설정</strong>을 했나요?</li>
+            </ul>
+
+            <p><strong>해결 방법:</strong></p>
+            <ul>
+                <li>OFF 버튼이나, 트레이 아이콘 우클릭 → "게임창 설정"으로 다시 선택</li>
+                <li>좌표/키 매핑 재설정</li>
+                <li>게임창에서 OFF 버튼 클릭 → ON으로 전환</li>
+            </ul>
+
+            <h3>❓ 다른 창에서도 키가 눌려요</h3>
+
+            <p><strong>원인:</strong> 게임창 선택이 잘못됨</p>
+
+            <p><strong>해결 방법:</strong></p>
+            <ol>
+                <li>ON/OFF 버튼이나, 트레이 아이콘 우클릭 → "게임창 설정"</li>
+                <li><strong>정확히 게임 창 위를 클릭</strong></li>
+            </ol>
+
+            <h3>❓ 휠 클릭이 안 눌려요</h3>
+
+            <p><strong>체크리스트:</strong></p>
+            <ul>
+                <li>✅ F5~F12 키만 휠 클릭 가능 (F1~F3은 불가)</li>
+                <li>✅ 키 매핑 설정에서 <strong>휠클릭 체크박스</strong> 체크 확인</li>
+            </ul>
+
+            <p><strong>해결 방법:</strong></p>
+            <ul>
+                <li>ON/OFF 버튼이나, 트레이 아이콘 우클릭 → "키 매핑 설정..."</li>
+                <li>F5~F12 옆 체크박스 확인</li>
+            </ul>
+
+            <h3>❓ 버튼 UI가 안 보여요</h3>
+
+            <p><strong>해결 방법:</strong></p>
+            <ol>
+                <li>실행 중인지 확인: 트레이아이콘에 IreCan Smart Addon 확인</li>
+                <li>트레이 아이콘 우클릭 → "버튼 보이기/숨기기"</li>
+            </ol>
+
+            <h3>❓ 라이선스가 만료되었어요</h3>
+
+            <p><strong>해결 방법:</strong></p>
+            <ol>
+                <li>프로그램 실행 시 <strong>연장 신청 창</strong> 표시</li>
+                <li><strong>[연장 신청]</strong> 클릭</li>
+                <li><strong>[텔레그램]</strong> 버튼으로 관리자 문의</li>
+                <li>관리자 승인 후 프로그램 재실행</li>
+            </ol>
+
+            <h3>❓ 시퀀스가 실행되지 않아요</h3>
+
+            <p><strong>체크리스트:</strong></p>
+            <ul>
+                <li>✅ 매크로가 <strong>ON</strong> 상태인가요? 매크로 OFF 상태에서는 버튼 클릭만 작동합니다.</li>
+                <li>✅ 게임 창이 활성화되어 있나요?</li>
+                <li>✅ 시퀀스에 액션이 추가되어 있나요?</li>
+                <li>✅ 이미 실행 중인 시퀀스가 있나요?</li>
+                <li>✅ 시퀀스를 버튼에 할당했나요?</li>
+            </ul>
+
+            <p><strong>해결 방법:</strong></p>
+            <ul>
+                <li>빨간색 [OFF] 버튼 클릭해보세요. 초록색 [ON]으로 바뀌는지 확인</li>
+                <li>게임창 활성화 상태에서 시도</li>
+                <li>버튼에 텍스트 색깔이 흰색인지 확인</li>
+                <li>시퀀스 설정에서 액션 확인</li>
+                <li>버튼 우클릭 - 시퀀스 할당</li>
+            </ul>
+        </section>
+
+        <!-- 빠른 시작 체크리스트 -->
+        <section class="checklist">
+            <h2>✅ 빠른 시작 체크리스트</h2>
+            <p>처음 사용자를 위한 5분 가이드:</p>
+            <ul>
+                <li>□ 1. 프로그램 실행 (관리자 권한 승인)</li>
+                <li>□ 2. 라이선스 등록/인증</li>
+                <li>□ 3. 게임창 선택</li>
+                <li>□ 4. 키 매핑 설정 (F5=q, F6=w, ...)</li>
+                <li>□ 5. 좌표 설정 (F5~F12 클릭 위치)</li>
+                <li>□ 6. 매크로 ON (<code>`</code> 키)</li>
+                <li>□ 7. 테스트: <code>q</code> 키 눌러보기</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>📞 <strong>추가 문의:</strong> 텔레그램 <strong>@smart_addon</strong></p>
+            <p style="margin-top: 20px;">🎉 설정 완료! 이제 편하게 게임을 즐기세요!</p>
+            <p style="margin-top: 40px; font-size: 0.9em;">© 2025 IreCan Smart Addon. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- 고정 네비게이션 버튼 -->
+    <div class="fixed-nav">
+        <a href="index.html">메인으로</a>
+        <a href="#nav">목차</a>
+    </div>
+</body>
+</html>

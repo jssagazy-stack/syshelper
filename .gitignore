@@ -4,3 +4,23 @@
 # System files
 .DS_Store
 Thumbs.db
+nul
+
+# 라이센스 파일 (하드웨어 ID 바인딩)
+license.dat
+
+# 로그 파일
+log.txt
+
+# 임시 파일
+temp_b64.txt
+temp_decoded.txt
+
+# Angel 폴더 임시/디버그 파일
+angel/.log
+angel/*.bak
+angel/err*.png
+angel/*_debug.log
+
+# Claude Code
+.claude/
