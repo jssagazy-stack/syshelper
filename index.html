@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="origin">
-    <title>이레캔 애드온</title>
+    <title>스마트 도우미</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL6QTXWJL1"></script>
@@ -19,7 +19,7 @@
     <meta name="google-site-verification" content="SNJcD-ROKTbGKVWRIUkR8BPFm1Q1veVJ3hreIqfGDY8" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="이레캔 스마트 애드온 - 리니지 프리섭을 더 편하게! QWER 핫키 매핑, 버튼 UI, 시퀀스 자동화로 50대도 신컨 가능. 무료 체험 3일 제공.">
+    <meta name="description" content="이레캔 스마트 애드온 - 리니지 프리섭을 더 편하게! QWER 핫키 매핑, 버튼 UI, 시퀀스 자동화로 50대도 신컨 가능.">
     <meta name="keywords" content="리니지 프리섭, 리니지 클래식, 린클, 리클, 리니지클래식, 이레캔, 애드온, 리니지 매크로, 린클 매크로, 리클 매크로, 리니지 프리섭 매크로, 리니지프리섭 매크로, QWER 핫키, 리니지 편의성, 리니지 자동화, 핫키 매핑, 자동 클릭, 연속 클릭, 반복 매크로, 게임 단축키, 좌표 클릭, 키보드 매크로, 마우스 매크로, 매크로 프로그램, IreCan, Lineage Classic, 리니지 단축키, 리니지 단축창, 악마도우미, 리니지프리섭, 리니지프리서버, 리니지컨트롤, 흑단컨, 흑단, 칼렉, 리니지 애드온, 린클 애드온, 리니지 헬퍼, 입력 유틸리티">
     <meta name="author" content="IreCan Smart Addon">
     <meta name="robots" content="index, follow">
@@ -27,7 +27,7 @@
     <!-- Open Graph Meta Tags (SNS 공유) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="IreCan Smart Addon - 세계최초 리니지 프리섭 애드온">
-    <meta property="og:description" content="리니지 프리섭을 더 편하게! QWER 핫키 매핑, 버튼 UI, 시퀀스 자동화. 3일 무료 체험.">
+    <meta property="og:description" content="리니지 프리섭을 더 편하게! QWER 핫키 매핑, 버튼 UI, 시퀀스 자동화.">
     <meta property="og:url" content="https://irecan.kr">
     <meta property="og:site_name" content="IreCan Smart Addon">
 
@@ -1168,7 +1168,7 @@
                 const noticeHtml = noticeContent.replace(/\n/g, '<br>');
                 document.getElementById('noticeModalContent').innerHTML = '<p>' + noticeHtml + '</p>';
             } else {
-                noticeContent = '🎉 신규 사용자 3일 무료 체험!';
+                noticeContent = '📢 문의는 텔레그램 @smart_addon 으로 연락 주세요.';
                 document.getElementById('noticeModalContent').innerHTML = '<p>' + noticeContent + '</p>';
             }
 
@@ -1204,7 +1204,7 @@
         .catch(error => {
             console.error('설정 로딩 실패:', error);
             // 기본 공지 표시
-            const defaultNotice = '🎉 신규 사용자 3일 무료 체험!';
+            const defaultNotice = '📢 문의는 텔레그램 @smart_addon 으로 연락 주세요.';
             document.getElementById('noticeModalContent').innerHTML = '<p>' + defaultNotice + '</p>';
             showNoticeModal(defaultNotice);
         });
@@ -1223,9 +1223,6 @@
         <a href="manual_v2.html" class="telegram-link" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3); display: inline-block;">
             📖 매뉴얼
         </a>
-        <a href="addon.zip" download class="telegram-link" style="background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3); display: inline-block;">
-            💾 다운로드
-        </a>
         <a href="https://t.me/smart_addon" class="telegram-link" target="_blank" style="background: linear-gradient(135deg, #0088cc, #0077b6); box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3); display: inline-block;">
             💬 텔레그램으로문의
         </a>
@@ -1240,16 +1237,6 @@
         <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.5/rustdesk-1.4.5-x86_64.exe" class="telegram-link" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3); display: inline-block;">
             🖥️ 원격 프로그램 다운로드
         </a>
-    </div>
-
-    <!-- Notice Section -->
-    <div style="text-align: center; margin: 20px auto; padding: 15px; background: rgba(139, 92, 246, 0.08); border-radius: 12px; max-width: 600px;">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
-            <img src="애드온캡처/irecan logo.png" alt="IreCan Logo" style="width: 32px; height: 32px;">
-            <p style="margin: 0; font-size: 1.1em; color: #c4b5fd; font-weight: 600;">
-                처음 등록요청 하시면 무료이용 라이센스 발급해 드립니다
-            </p>
-        </div>
     </div>
 
     <div class="container">
@@ -2379,8 +2366,7 @@
             <div class="pricing-box">
                 <h3>📋 이용 안내</h3>
                 <ul>
-                    <li><strong>후원 리워드:</strong> 1만원 후원 시 30일 사용 리워드</li>
-                    <li><strong>최초 등록요청 시:</strong> 무료이용 라이선스 발급 - 3일</li>
+                    <li><strong>후원 리워드:</strong> 2만원 후원 시 30일 사용 리워드</li>
                     <li><strong>라이선스:</strong> 하드웨어 ID 기반 (PC 1대 전용)</li>
                     <li><strong>호환성:</strong> 리니지 프리섭 모든 버전 사용 가능</li>
                     <li><strong>후원 문의:</strong> 텔레그램 @smart_addon</li>
@@ -2407,7 +2393,6 @@
             </a>
 
             <p style="margin-top: 25px; font-size: 0.9em;">
-                📌 3일 체험 라이선스 요청<br>
                 📌 정식 후원 및 리워드 안내
             </p>
         </div>
